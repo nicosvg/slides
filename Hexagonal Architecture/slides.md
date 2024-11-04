@@ -26,10 +26,12 @@ section.lead {
 
 # Plan
 
-- Intro 15 min
-- Kata 1h
+- Intro 5 min
+- Kata: first try 30 min
 - Presentation 30 min
-- Application to kata or to Lalilo code
+- Kata: second try 30 min
+- Debrief 
+- Application to our code
 
 ---
 
@@ -65,12 +67,10 @@ Problem:
 ## Goal: refactor the code so that it is more...
 
 - Testable: we can write unit tests (see definition next slide)
-  - Code that talks to external systems must be clearly separated
 - Flexible:
   - It should not cost a lot to change when requirements change.
-  - Business logic must not depende on low-level APIs
+  - Business logic must not depend on low-level APIs
 - Well-designed: separate clearly the business logic from the infrastructure.
-
 
 ---
 
@@ -130,8 +130,7 @@ Why unit tests?
 
 # Hexagonal Architecture
 
-![bg right 100%](hexagonal-architecture-1.png)
-
+![bg right 100%](image-10.png)
 
 Alistair Cockburn (2005)
 
@@ -209,15 +208,42 @@ This creates an n-tier architecture
 ![bg 100%](image-4.png)
 
 
-
+---
 
 --- 
 
-# Apply to our code
+# Apply to our code?
 
 ---
 
 # Important points
 
 - Isolate business logic from the 'low-level' modules
-- No dependencies in application core
+- No dependencies in application core when possible
+- Application core should at least call custom code, which manage the dependencies
+
+---
+
+
+ Clean architecture
+
+![bg 50%](image-11.png)
+
+---
+
+Onion architecture
+
+![bg right 80%](image-12.png)
+
+---
+
+Inversion of Control:
+ A framework calls the code
+
+Dependency Inversion Principle
+  Depend on interface, not implementation
+
+Dependency Injection
+  Give the dependency to the module
+
+  ![bg right 60%](image-13.png)

@@ -1,3 +1,61 @@
-# Questions
-
-Why is the interface between the driver adapters and the application needed?
+Intro: quote above
+	- One vision of software architecture
+	- Make it flexible so that we can delay the decisions
+	- Goal today: see what is hexagonal architecture (or ports and adapters), what it implies, and what are the benefits.
+	- This is not something that is always applicable, but we should at least remember the principles 
+- Plan of the training session
+- Code Kata
+	- Kata: train by repeating the same quick exercise
+	- Goals: try to improve, try new things, new languages
+- Birthday greetings kata
+- Kata presentation
+- Goals
+- Unit tests
+	- We need unit tests to assert quickly taht we do not break anything in the business logic
+	- Shorten the feedback loop
+	- We also need broader tests such as integration tests or end to end tests
+- Not goals
+- Coding time 30 min
+- Different types of architecture
+	- 3-tier + SOA: what we do
+- Zoom on layered architecture
+	- Look at direction of arrows
+	- This is the direction of dependencies
+	- Problem: Data access is not the only dependency
+- Hexagonal architecture, or 'ports and adapters'
+	- More than 6 sides
+		- We can have more than one DB
+		- We can have more than one input ()
+	- The application is in the center, and isolated from the rest
+	- Archi based on the Dependency inversion principle
+	- Why?
+		- Business logic is what brings value for most softwares (there are exceptions). Implementation details such ad DB, mail providers, etc... are necessary but not where the value is. For instance at Lalilo: adaptive learning algorithms, ...
+		- Dependencies change, can become deprecated, have bugs, become paying...
+- Ports and adapters schema
+	- Driver and driven ports
+	- Driver wraps the port
+	- Driven implements the port
+	- Multiple adapters for each port
+- DIP
+	- In this example A is higher level (business logic) and B is low level (DB for instance)
+- How: Dependency injection (slide to add)
+	- The service asks for interfaces, providing it with its dependencies
+	- vs the service creates, or calls directly an implementation
+- Pros
+- Cons
+	- Maybe talk about inversion of control frameworks
+- Tooling
+	- Dependency cruiser to check the dependencies directions, and a lot more
+- Back to kata 30 min to apply
+- One solution/Example, 3 slides
+	- First step, extract low level modules
+	- Second step: add interfaces to inverse the dependencies
+		- Employee class (or module) would be in the domain
+	- Third: extend if needed
+- Apply to our code. Examples
+	- Sendgrid (weekly mails for instance)
+	- How we call sequelize  directly from the services
+	- Take some time to find other examples during the workshop
+	- Or brainstorm...
+- Important points
+	- Make the app more robust by separating more the responsibilities
