@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/dracula.css" />
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		Reveal.initialize({
+			plugins: [RevealHighlight],
+		});
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-auto-animate>
+
+				<h1>Vim</h1>
+
+			</section>
+			<section data-auto-animate>
+
+				<h1>Vim</h1>
+
+				<h2> Chapter 1: Introduction</h2>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+# History
+
+- Vi (1976): Visual Editor
+- **Vim** (1992): VI iMproved
+  - Vi + mouse support, syntax highlighting, visual mode...
+- Neovim (2015)
+
+![keyboard](images/keyboard.png)
+
+
+---
+
+## Modes
+
+Vim is a *modal* editor
+
+- *normal* mode: to move, edit,...
+- *insert* mode: to insert text
+- *visual* mode: to select
+- *command* mode: to run commands
+- *replace* mode: to replace text
+
+---
+## Command mode
+
+⌨️ run `vim`
+- Quit `:q`
+- Force quit `:!q`
+- Write `:w`
+- Write and quit `:wq` `:x` `ZZ`
+
+---
+
+## Move
+ - `h j k l`
+ - `w` next word - `b` previous word 
+- `0` start of line - `$` end of line
+- `Ctrl-u` scroll up
+- `Ctrl-d` scroll down
+
+						
+- `gd` go to definition
+- `fx` go forward to next *x*
+- `tx` go before next *x*
+
+---
+
+## Editing
+
+-  `u` undo - `Ctrl-r` redo
+-  `.` repeat last command
+ 
+-  `r` replace one character
+- `x` delete one character
+-  `J` join two lines
+
+---
+
+## Combine commands with moves
+ Create 'sentences' to edit the code
+
+- `d`: nothing
+- `dw`: delete to start of next word
+- `2dw`: delete two words
+- `dd`: delete whole line (doubling: whole line)
+- `diw`: delete inside word
+- `dib`: delete in block (`b`lock)
+						
+---
+
+- 🧪 Try: delete to the end of a line
+- 🧪 Try: delete 2 lines
+- 🧪 Try: delete all text inside parentheses
+
+---
+
+## Copy and paste
+
+- `d` *d*elete/cut
+- `p` *p*aste
+- `y` *y*ank/copy
+
+---
+
+## Editing: insert mode
+
+- `i`  *i*nsert text before (`I` at start of line)
+- `a` *a*dd text after (`A` at end of line)
+- `o` insert line after (`O` before)
+
+- `cw` *c*hange *w*ord
+
+Go back to *normal* mode with `ESC`
+
+🧪 Try: change text inside parentheses
+
+---
+
+## Visual mode
+
+- `v` enter visual mode
+- `V` enter line visual mode
+- `Ctrl-v` enter block visual mode
+
+---
+
+## Search and replace
+
+- `/` to search
+- `n` *n*ext result
+- `%s/old/new/g` replace in whole doc
+
+🧪 Try: delete all `= ...` in the constructor
+
+---
+
+## Macros
+
+- `qa` record macro `a`
+- `q` stop recording
+- `@a` run macro `a`
+- `aa` rerun last macro
+
+🧪 Try: delete all `= ...` in the constructor
+
+---
+
+
+## Resources
+
+[Cheatsheet](https://vim.rtorr.com/)
+[Vim adventures](https://vim-adventures.com/)
+[Vim racer](https://vim-racer.com/)
+[Vim for React devs](https://github.com/leerob/vim-for-react-devs?tab=readme-ov-file#prerequisites)
+
+  </textarea>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
