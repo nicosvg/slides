@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        plugins: [RevealHighlight],
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-auto-animate>
+          <img data-src="./images/reveal-white-text.svg" class="half-width" />
+        </section>
+        <section data-auto-animate>
+          <h1>Why HTML slides?</h1>
+          <ul>
+            <li class="fragment">Write code -> get slides!</li>
+            <li class="fragment">(Maybe) less time spent on formatting</li>
+            <li class="fragment">Open source</li>
+          </ul>
+        </section>
+        <section data-auto-animate>
+          <h1>Why <b>reveal.js</b>?</h1>
+          <p>There are other solutions: Marp (Markdown), TODO...</p>
+          <ul>
+            <li class="fragment">68.1k ⭐ on Github</li>
+            <li class="fragment">Still maintained</li>
+            <li class="fragment">Standalone</li>
+            <li class="fragment">
+              Complete enough, but not complicated to use (mostly HTML)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h1>How?</h1>
+            ↓
+          </section>
+
+          <section>
+            <ol>
+              <h2>Install</h2>
+              <li class="fragment">
+                Download
+                <a
+                  href="https://github.com/hakimel/reveal.js/archive/master.zip"
+                  >reveal.js</a
+                >
+              </li>
+              <li class="fragment">Unzip</li>
+              <li class="fragment">
+                Open
+                <i>index.html</i>
+              </li>
+              <li class="fragment">
+                ... or run local server with
+                <pre><code data-trim data-noescape>
+                  npm install 
+                  npm start
+                </code></pre>
+              </li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Edit the HTML</h2>
+          </section>
+        </section>
+        <section>
+          <h1>Features</h1>
+          ↓
+          <section>
+            <h2>Markdown</h2>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <!-- 
+4. Features
+	1. Markdown
+	2. Fragments
+	3. Code with syntax highlighting
+		1. Step by step highlights
+5. PDF export
+6. Drawbacks
+	1. Not a lot of themes
+	2. Default ZIP file weigths 2Mo
+
+-->
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .half-width {
+    width: 50vw;
+  }
+</style>
+
