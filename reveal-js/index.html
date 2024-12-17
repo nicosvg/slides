@@ -11,16 +11,10 @@
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/dracula.css" />
+    <link rel="stylesheet" href="./dist/theme/dracula.css" />
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
-    <script src="plugin/highlight/highlight.js"></script>
-    <script>
-      Reveal.initialize({
-        plugins: [RevealHighlight],
-      });
-    </script>
   </head>
 
   <body>
@@ -35,6 +29,7 @@
             <li class="fragment">Write code -> get slides!</li>
             <li class="fragment">(Maybe) less time spent on formatting</li>
             <li class="fragment">Open source</li>
+            <li class="fragment">Save slides in Git repo</li>
           </ul>
         </section>
         <section data-auto-animate>
@@ -83,34 +78,162 @@
 
           <section>
             <h2>Edit the HTML</h2>
+            Coucou Nico
+          </section>
+
+          <section>
+            <h2>Add images?</h2>
+            <img data-src="./images/BLUE_GOPHER.png" />
+          </section>
+
+          <section>
+            <h2>Add more images</h2>
+            <div style="display: flex">
+              <img data-src="./images/BLUE_GLASSES_GOPHER.png" width="50%" />
+              <img data-src="./images/BLUE_GOPHER.png" width="50%" />
+            </div>
           </section>
         </section>
+
         <section>
           <h1>Features</h1>
-          ↓
-          <section>
-            <h2>Markdown</h2>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+    # Markdown
+    A paragraph with some text and a [link](http://no-hello.com).
+    ---
+    ## Markdown Slide 2
+    | Tables        | Are           | Cool  |
+    | ------------- |:-------------:| -----:|   
+    | col 3 is      | right-aligned | $1600 |
+    ---
+    ## Markdown Slide 3
+  </textarea
+          >
+        </section>
+
+        <section>
+          <h2>Auto Animate</h2>
+          <section data-auto-animate>
+            <div data-id="mytext">This</div>
+            <div
+              data-id="box"
+              style="width: 50px; height: 50px; background: purple"
+            ></div>
+          </section>
+          <section data-auto-animate>
+            <div data-id="mytext" style="color: orange">That</div>
+            <div data-id="box" style="height: 200px; background: orange"></div>
+            <p>Hello!</p>
+          </section>
+          <section data-auto-animate>
+            <p>Good bye!</p>
           </section>
         </section>
+        <section data-auto-animate>
+          <h2 data-id="code-title">Code</h2>
+          <pre
+            data-id="code-animation"
+          ><code class="avascript" data-trim data-line-numbers>
+						import React, { useState } from 'react';
+
+						function Example() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    ...
+						  );
+						}
+					</code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">With Animations</h2>
+          <pre
+            data-id="code-animation"
+          ><code class="javascript" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+						import React, { useState } from 'react';
+
+						function Example() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    <div>
+						      <p>You clicked {count} times</p>
+						      <button onClick={() => setCount(count + 1)}>
+						        Click me
+						      </button>
+						    </div>
+						  );
+						}
+
+						function SecondExample() {
+						  const [count, setCount] = useState(0);
+
+						  return (
+						    <div>
+						      <p>You clicked {count} times</p>
+						      <button onClick={() => setCount(count + 1)}>
+						        Click me
+						      </button>
+						    </div>
+						  );
+						}
+					</script></code></pre>
+        </section>
+
+        <section>
+          <h2>Overview: ESC</h2>
+        </section>
+
+        <section>
+          <section>
+            <h1>More</h1>
+            <ul>
+              <li>Maths</li>
+              <li>Transitions</li>
+              <li>Vertical slides</li>
+              <li>Backgrounds</li>
+              <li>Media: video, iframes,...</li>
+              <li>Speaker view</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Scroll mode</h3>
+            <p>Open the url with `?view=scroll`</p>
+            <a href="http://localhost:8000/?view=scroll">Test here</a>
+          </section>
+        </section>
+
+        <section>
+          <h1>Export to PDF</h1>
+          Open with <code>?print-pdf</code>
+          or run
+          <pre>
+          <code>
+npx decktape ./index.html slides.pdf
+            </code></pre>
+        </section>
+
+        <section>
+          <h1>Drawbacks</h1>
+          <ul>
+            <li>Collaboration: pair programming</li>
+            <li>Need to export or publish to share</li>
+            <li>More complicated slides can take time to format</li>
+          </ul>
+        </section>
+
+        <section>Thank you 😁</section>
       </div>
     </div>
-
-    <!-- 
-4. Features
-	1. Markdown
-	2. Fragments
-	3. Code with syntax highlighting
-		1. Step by step highlights
-5. PDF export
-6. Drawbacks
-	1. Not a lot of themes
-	2. Default ZIP file weigths 2Mo
-
--->
 
     <script src="dist/reveal.js"></script>
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
     <script>
       Reveal.initialize({
         hash: true,

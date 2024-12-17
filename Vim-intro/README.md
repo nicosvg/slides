@@ -6,6 +6,8 @@ You can use the `example.ts` file to follow along with the training.
 
 ```bash
 npx live-server
+# or
+npm start
 ```
 
 ## Generate PDF
@@ -13,4 +15,3 @@ npx live-server
 ```bash
 npx decktape ./index.html vim-intro.pdf
 ```
-
