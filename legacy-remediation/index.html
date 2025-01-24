@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/dracula.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-auto-animate>
+          <h1>Legacy remediation</h1>
+          <i>kata/workshop</i>
+        </section>
+        <section data-auto-animate>
+          <h3>Plan</h3>
+          <ol>
+            <li>Introduction (10min)</li>
+            <li>Coding (1h20)</li>
+            <li>Debrief (15min)</li>
+            <li>Pause (15min)</li>
+            <li>Mutation testing (1h)</li>
+          </ol>
+        </section>
+        <section data-auto-animate>
+          <img data-src="./images/legacy-code.jpg" class="half-width" />
+          <p>What is legacy code?</p>
+        </section>
+        <section data-auto-animate>
+          <h3>Legacy code</h3>
+          <ul>
+            <li>Code without tests</li>
+            <li>Code you are not comfortable changing</li>
+            <li>
+              Source code that relates to a no-longer supported or manufactured
+              operating system or other computer technology
+            </li>
+            <li>
+              The antithesis of clean code which is easy to understand,
+              maintain, and adapt.
+            </li>
+            <li>Code is legacy code as soon as it's written</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Gilded Rose - a refactoring kata</h3>
+
+          <p><a>https://github.com/nicosvg/gilded-rose-typescript</a></p>
+          <p>👩‍💻 Clone the Github</p>
+        </section>
+        <section>
+          <section>
+            <h3>Instructions</h3>
+            <ul>
+              <li>👓 Read <code>GildedRoseRequirements.md</code></li>
+              <li>⏳ Implement the new feature as fast as possible</li>
+              <li>🧹 Make the code maintainable</li>
+              <li>🩹 Try to be sure that you do not break anything</li>
+              <li>⚠️ We consider that the existing code is correct</li>
+              <li>🧪 Use either unit tests, snapshot tests, other, or none</li>
+              <li>🔬 Do atomic commits</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Tips</h3>
+            <ul>
+              <li>Use the refactoring tools of your IDE</li>
+              <li>For VSCode: abracadabra for instance</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>Mutation testing</h2>
+          <i>Testing your tests</i>
+        </section>
+        <section>
+          <p>👨‍💻 Install StrykerJS</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .half-width {
+    width: 50vw;
+  }
+</style>
