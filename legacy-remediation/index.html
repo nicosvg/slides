@@ -77,16 +77,33 @@
             <h3>Tips</h3>
             <ul>
               <li>Use the refactoring tools of your IDE</li>
-              <li>For VSCode: abracadabra for instance</li>
+              <li>For VSCode: abracadabra plugin for instance</li>
             </ul>
           </section>
+        </section>
+        <section>
+          <h2>Debrief kata</h2>
+          <ul>
+            <li class="fragment">Did you manage to add the feature?</li>
+            <li class="fragment">
+              How did you make sure not to break anything?
+            </li>
+            <li class="fragment">
+              How can we check that the tests are correct?
+            </li>
+            <li class="fragment">Did you use the code coverage?</li>
+            <li class="fragment">Did you use AI?</li>
+          </ul>
         </section>
         <section>
           <h2>Mutation testing</h2>
           <i>Testing your tests</i>
         </section>
         <section>
-          <p>👨‍💻 Install StrykerJS</p>
+          <p>👨‍💻 Add to package.json</p>
+          <p class="fragment"><code> "test:mutation": "stryker run" </code></p>
+          <p class="fragment">👨‍💻 Run mutation tests</p>
+          <p class="fragment"><code>npm run test:mutation</code></p>
         </section>
       </div>
     </div>
