@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Property Based Testing</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/simple.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Property Based Testing</h1>
+        </section>
+
+        <section>
+          <h2>Example Based Testing</h2>
+          Our current unit tests: 
+          one input, one output
+        </section>
+
+        <section>
+          <img src="./images/Pasted image 20250520105229.png" alt="Example based testing diagram" />
+        </section>
+       
+        <section>
+          <h2>Property Based Testing: How Does It Work?</h2>
+          <div class="flex grow">
+            <div class="flex-1 flex-col text-left">
+              <ul>
+                <li>Comes from functional programming world (Haskell)</li>
+                <li>A property is an input-independent rule</li>
+                <li>Shrinking allows easy reproduction</li>
+              </ul>
+            </div>
+            <div class="flex-1">
+              <img src="./images/Pasted image 20250520105624.png" alt="Property based testing diagram" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Benefits</h2>
+          <ul>
+            <li><b>Robustness</b>: test for obscure edge cases you probably wouldn't think of yourself</li>
+            <li><b>Write fewer tests</b>: test against many automatically-generated examples, thus reducing the need for many example-based tests.</li>
+            <li><b>Deeply understand your code</b>: having to formalize the core rules of your function makes you think more deeply about your code and how it should behave</li>
+          </ul>
+</section>
+
+        <section>
+          <h2>Test Examples: Reverse Function</h2>
+          <div class="flex-col text-left">
+            <p>Function <code>reverse(string)</code></p>
+            <p>What can be a property?</p>
+            <ul class="fragment">
+              <li>reverse(reverse(string)) = string</li>
+              <li>reverse(string).length = string.length</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <section>
+          <h2>Some Properties Examples</h2>
+          👇
+          </section>
+          <section>
+            <h3>Round-tripping/Symmetry</h3>
+            <img src="./images/Pasted image 20250520111922.png" alt="Round-tripping example" />
+          </section>
+
+          <section>
+            <h3>Invariants</h3>
+            <img src="./images/Pasted image 20250520111952.png" alt="Invariants example" />
+            <div class="text-left">
+              <ul>
+                <li>The size of a list should not change after a map operation</li>
+                <li>The contents of a list should not change after a sort operation</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>Idempotence</h3>
+            <img src="./images/Pasted image 20250520112038.png" alt="Idempotence example" />
+          </section>
+
+          <section>
+            <p>Check for a smaller problem</p>
+            <p>For instance compare two values</p>
+          </section>
+
+          <section>
+            <h3>Test oracle</h3>
+            <p>Compare with the output of another implentation of the function</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>When Can It Be Useful?</h2>
+          <div class="flex-col text-left">
+            <ul>
+              <li>Pure functions with clear invariants</li>
+              <li>APIs and serialization</li>
+              <li>Mathematical and algorithmic functions</li>
+              <li>Concurrent systems (find race conditions)</li>
+              <li>State machines (model-based testing)</li>
+              <li>UI testing</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Typescript lib: fast-check</h2>
+          <div class="flex-col text-left">
+            <ul>
+              <li>4.5 stars on GitHub</li>
+              <li>2M+ weekly downloads on npm</li>
+              <li>https://fast-check.dev/</li>
+            </ul>
+          </div>
+          <div class="flex-col">
+                <img src="./images/fast-check.png"  />
+          </div>
+        </section>
+
+        <section>
+          <h3>Fast-check example</h3>
+          <ol>
+            <li>install the example repo</li>
+            <li>create simple example-based test</li>
+            <li>add property-based test</li>
+            <li>check with {verbose: 2}</li>
+            <li>use seed to reproduce</li>
+            <li>Fix the code?</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>The Anatomy of a fast-check Test</h2>
+          <div class="flex-col text-left">
+            <h3>Four main elements:</h3>
+            <ol>
+              <li><strong>fc.assert</strong> - Wraps your entire test</li>
+              <li><strong>fc.property</strong> - Composed of arbitrary generators and a predicate</li>
+              <li><strong>fc.arbitraries</strong> - Generate test input data</li>
+              <li><strong>The predicate</strong> - Where test logic lies</li>
+            </ol>
+          </div>
+        </section>
+
+        <section>
+          <h2>Tradeoffs</h2>
+          <div class="flex-col text-left">
+            <ol>
+              <li><strong>Complexity</strong> - Harder to construct, takes more time and thought</li>
+              <li><strong>Execution time</strong> - Increases test execution time</li>
+              <li><strong>Relying on programmatic logic</strong> - Potential for false positives/negatives</li>
+              <li><strong>Randomness</strong> - May take a long time to find an edge case</li>
+            </ol>
+            <p class="mt-4">Mix Property Based Testing with Example Based Testing for best results</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex-col text-left">
+            <ul>
+              <li>
+                Mix with example-based tests for best results
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .half-width {
+    width: 50vw;
+  }
+</style>
